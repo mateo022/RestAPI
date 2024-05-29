@@ -12,8 +12,4 @@
     <ProjectReference Include="..\RestAPIBackendWebService.Services\RestAPIBackendWebService.Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="APIs\" />
-  </ItemGroup>
-
 </Project>

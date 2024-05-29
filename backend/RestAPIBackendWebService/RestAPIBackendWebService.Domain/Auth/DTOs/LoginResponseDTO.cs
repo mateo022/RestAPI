@@ -1,7 +1,7 @@
 ﻿using RestAPIBackendWebService.Business.Auth.Logic;
 using RestAPIBackendWebService.Domain.User.Models;
 
-namespace BostonOrderDeliveriesManagementAPI.Domain.Auth.DTOs
+namespace RestAPIBackendWebService.Domain.Auth.DTOs
 {
     public class LoginResponseDTO
     {
