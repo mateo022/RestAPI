@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RestAPIBackendWebService.Domain\RestAPIBackendWebService.Domain.csproj" />
+    <ProjectReference Include="..\RestAPIBackendWebService.Services\RestAPIBackendWebService.Services.csproj" />
+  </ItemGroup>
+
 </Project>

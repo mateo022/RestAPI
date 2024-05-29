@@ -11,4 +11,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RestAPIBackendWebService.Business\RestAPIBackendWebService.Business.csproj" />
+    <ProjectReference Include="..\RestAPIBackendWebService.DataAccess\RestAPIBackendWebService.DataAccess.csproj" />
+    <ProjectReference Include="..\RestAPIBackendWebService.Domain\RestAPIBackendWebService.Domain.csproj" />
+    <ProjectReference Include="..\RestAPIBackendWebService.Services\RestAPIBackendWebService.Services.csproj" />
+  </ItemGroup>
+
 </Project>
