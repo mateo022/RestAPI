@@ -15,4 +15,8 @@
     <PackageReference Include="TourmalineCore.AspNetCore.JwtAuthentication.Identity" Version="0.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="User\Entities\" />
+  </ItemGroup>
+
 </Project>

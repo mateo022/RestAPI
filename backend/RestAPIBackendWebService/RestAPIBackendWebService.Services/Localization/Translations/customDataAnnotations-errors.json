@@ -1,0 +1,20 @@
+{
+    "en": {
+        "LocalizationEmailAddressAttribute": "The email field is not a valid e-mail address.",
+        "LocalizationRequiredAttribute": "The '{0}' is required.",
+        "LocalizationCompareAttribute": "'{0}' and '{1}' missmatch.",
+        "LocalizationCompareAttribute_UnknownProperty": "Unknown property '{0}'.",
+        "LocalizationCommon_PropertyNotFound": "'{0}' doesn't found on class '{1}'",
+        "LocalizationPhoneAttribute": "The PhoneNumber field is not a valid phone number.",
+        "LocalizationPhoneIndicatorAttribute": "The country phone indicator field is not a valid indicator."
+    },
+    "es": {
+        "LocalizationEmailAddressAttribute": "El e-mail no es una dirección de correo válida.",
+        "LocalizationRequiredAttribute": "El campo '{0}' es obligatorio.",
+        "LocalizationCompareAttribute": "'{0}' y '{1}' no concuerdan.",
+        "LocalizationCompareAttribute_UnknownProperty": "La propiedad '{0}' es desconocida.",
+        "LocalizationCommon_PropertyNotFound": "'{0}' no fué encontrado en la clase '{1}'.",
+        "LocalizationPhoneAttribute": "El número telefónico no es válido.",
+        "LocalizationPhoneIndicatorAttribute": "El indicador de número celular (país) no es un indicador válido."
+    }
+}

@@ -1,4 +1,6 @@
-﻿namespace RestAPIBackendWebService.Domain.Auth.DTOs
+﻿using Newtonsoft.Json;
+
+namespace RestAPIBackendWebService.Domain.Auth.DTOs
 {
     public class VerifyTwoFactorCodeRequestDTO
     {
