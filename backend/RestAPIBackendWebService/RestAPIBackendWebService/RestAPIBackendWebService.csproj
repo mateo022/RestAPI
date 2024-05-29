@@ -29,4 +29,8 @@
     <ProjectReference Include="..\RestAPIBackendWebService.Services\RestAPIBackendWebService.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>
