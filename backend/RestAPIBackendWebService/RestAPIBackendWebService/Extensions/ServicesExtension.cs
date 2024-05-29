@@ -14,6 +14,7 @@ using RestAPIBackendWebService.Services.Security.Logic;
 using System.Net;
 using System.Text;
 using RestAPIBackendWebService.Identity;
+using RestAPIBackendWebService.DataAccess;
 
 namespace RestAPIBackendWebService.Extensions
 {
@@ -69,7 +70,7 @@ namespace RestAPIBackendWebService.Extensions
                 .AddRoleManager<RoleManager<CustomIdentityRole>>()
                 // Added custom error describer for change errors language
                 .AddErrorDescriber<LocalizedIdentityErrorDescriber>()
-                .AddEntityFrameworkStores<O2cterumoDbContext>()
+                .AddEntityFrameworkStores<RestAPIDbContext>()
                 .AddDefaultTokenProviders();
             }
 
