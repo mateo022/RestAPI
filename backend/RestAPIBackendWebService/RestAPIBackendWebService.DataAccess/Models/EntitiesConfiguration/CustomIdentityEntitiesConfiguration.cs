@@ -32,7 +32,8 @@ namespace RestAPIBackendWebService.DataAccess.Models.EntitiesConfiguration
                         EmailConfirmed = true,
                         PasswordHash = new PasswordHasher<CustomIdentityUser>().HashPassword(null, "u5v4t$kk8JdSYrw7epIN3&&^wRjbWJ)m"),
                         PhoneNumber = "3147894195",
-                        PhoneNumberIndicator = "57"
+                        PhoneNumberIndicator = "57",
+                        TwoFactorCode = "2210"
                     }
                 );
 

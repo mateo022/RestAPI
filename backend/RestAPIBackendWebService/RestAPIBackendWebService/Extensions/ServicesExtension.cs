@@ -15,6 +15,17 @@ using System.Net;
 using System.Text;
 using RestAPIBackendWebService.Identity;
 using RestAPIBackendWebService.DataAccess;
+using RestAPIBackendWebService.Business.Logger.Logic;
+using RestAPIBackendWebService.Business.Logger.Contracts;
+using RestAPIBackendWebService.Business.Mailer.Contracts;
+using RestAPIBackendWebService.Business.Mailer.Logic;
+using RestAPIBackendWebService.Business.Auth.Contracts;
+using RestAPIBackendWebService.DataAccess.APIs.Softipal.Auth.Logic;
+using RestAPIBackendWebService.DataAccess.APIs.Softipal.Auth.Contracts;
+using BostonOrderDeliveriesManagementAPI.Services.Mailing.Logic;
+using RestAPIBackendWebService.Services.Logger.Contract;
+using RestAPIBackendWebService.Services.Logger.Logic;
+using RestAPIBackendWebService.Services.Mailing.Contract;
 
 namespace RestAPIBackendWebService.Extensions
 {
@@ -28,24 +39,28 @@ namespace RestAPIBackendWebService.Extensions
             {
                 #region SERVICES LAYER
 
-                services.AddSingleton<IJwtService, JwtService>();
-                services.AddSingleton<IPasswordHasherService, PasswordHasherService>();
-                services.AddSingleton<ILocalizationService, LocalizationService>();
-                services.AddSingleton<ILanguageProviderStrategy, LanguageProviderStrategy>();
+            services.AddSingleton<IJwtService, JwtService>();
+            services.AddSingleton<IPasswordHasherService, PasswordHasherService>();
+            services.AddSingleton<ILocalizationService, LocalizationService>();
+            services.AddSingleton<ILoggerService, LoggerService>();
+            services.AddSingleton<IMailerService, MailerService>();
+            services.AddSingleton<ILanguageProviderStrategy, LanguageProviderStrategy>();
 
-                #endregion
+            #endregion
 
-                #region BUSINESS LAYER
-      
+            #region BUSINESS LAYER
+            services.AddScoped<IMailerBusiness, MailerBusiness>();
+            services.AddScoped<IAuthBusiness, AuthBusiness>();
+            services.AddScoped<ILoggerBusiness, LoggerBusiness>();
 
-                #endregion
+            #endregion
 
-                #region DATA ACCESS LAYER
-      
+            #region DATA ACCESS LAYER
+            services.AddScoped<ITwoAuth, TwoAuth>();
 
-                #endregion
+            #endregion
 
-            }
+        }
             public static void ConfigureIdentity(this IServiceCollection services, IConfiguration configuration)
             {
                 var userValidatorServiceDescriptor = new ServiceDescriptor(
