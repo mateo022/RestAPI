@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RestAPIBackendWebService.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDataBase : Migration
+    public partial class CreateDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -166,19 +166,19 @@ namespace RestAPIBackendWebService.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "513f280e-3277-4099-8baf-1462b451a5ea", null, "Admin", "ADMIN" },
-                    { "fc31964e-f0c9-4bd5-8ace-8e90bcd26358", null, "User", "USER" }
+                    { "391ff13a-fb36-4b30-badc-ee37ea23c4ff", null, "Admin", "ADMIN" },
+                    { "46b58d00-e53e-463f-85e1-dd222ef0281e", null, "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PhoneNumberIndicator", "SecurityStamp", "TwoFactorCode", "TwoFactorEnabled", "TwoFactorExpireDate", "UserName" },
-                values: new object[] { "c03df4df-b14d-4187-93cd-e10fc1e4a13c", 0, "5b763bf1-dfe7-4fe5-ab57-5bb020ac5c7b", "mateoceballos022@gmail.com", true, false, null, "MATEOCEBALLOS022@GMAIL.COM", "MATEO CEBALLOS", "AQAAAAIAAYagAAAAEFmc7IdquxULlYapS6flK2nIw2lToNu9JY4ERakd+MV1gGwoQkZR5/9R5bR/BU6kSw==", "3147894195", false, "57", "21552336-19d0-4bfa-bca1-c7617e5208da", "2210", false, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Mateo Ceballos" });
+                values: new object[] { "b79eac0d-16aa-4929-b0b5-771e2cce307f", 0, "9620be89-f88c-44f2-9916-5246b25fe30e", "mateoceballos022@gmail.com", true, false, null, "MATEOCEBALLOS022@GMAIL.COM", "MATEO CEBALLOS", "AQAAAAIAAYagAAAAEH+zTm0MC4aLtRFcoXucb6LKWCVudxWrojj2NQRH/DM4O+tKPextXjLX6PvgPPmA4Q==", "3147894195", false, "57", "afc54432-ed11-4067-a36c-926f27fa4ead", "2210", false, new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)), "Mateo Ceballos" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "513f280e-3277-4099-8baf-1462b451a5ea", "c03df4df-b14d-4187-93cd-e10fc1e4a13c" });
+                values: new object[] { "391ff13a-fb36-4b30-badc-ee37ea23c4ff", "b79eac0d-16aa-4929-b0b5-771e2cce307f" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

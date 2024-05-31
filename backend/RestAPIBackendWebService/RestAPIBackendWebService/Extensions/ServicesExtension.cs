@@ -26,6 +26,10 @@ using BostonOrderDeliveriesManagementAPI.Services.Mailing.Logic;
 using RestAPIBackendWebService.Services.Logger.Contract;
 using RestAPIBackendWebService.Services.Logger.Logic;
 using RestAPIBackendWebService.Services.Mailing.Contract;
+using O2CBackendWebService.Business.Role.Logic;
+using RestAPIBackendWebService.Business.Role.Contracts;
+using RestAPIBackendWebService.Business.User.Contracts;
+using RestAPIBackendWebService.Business.User.Logic;
 
 namespace RestAPIBackendWebService.Extensions
 {
@@ -52,6 +56,9 @@ namespace RestAPIBackendWebService.Extensions
             services.AddScoped<IMailerBusiness, MailerBusiness>();
             services.AddScoped<IAuthBusiness, AuthBusiness>();
             services.AddScoped<ILoggerBusiness, LoggerBusiness>();
+            services.AddScoped<IRoleBusiness, RoleBusiness>();
+            services.AddScoped<IUserBusiness, UserBusiness>();
+            services.AddSingleton<IJwtService, JwtService>();
 
             #endregion
 
@@ -61,35 +68,35 @@ namespace RestAPIBackendWebService.Extensions
             #endregion
 
         }
-            public static void ConfigureIdentity(this IServiceCollection services, IConfiguration configuration)
+        public static void ConfigureIdentity(this IServiceCollection services, IConfiguration configuration)
+        {
+            var userValidatorServiceDescriptor = new ServiceDescriptor(
+                typeof(IUserValidator<CustomIdentityUser>),
+                typeof(CustomIdentityUserValidator<CustomIdentityUser>),
+                ServiceLifetime.Scoped);
+
+            services.Replace(userValidatorServiceDescriptor);
+
+            services.AddIdentityCore<CustomIdentityUser>(options =>
             {
-                var userValidatorServiceDescriptor = new ServiceDescriptor(
-                    typeof(IUserValidator<CustomIdentityUser>),
-                    typeof(CustomIdentityUserValidator<CustomIdentityUser>),
-                    ServiceLifetime.Scoped);
+                //Configure allowed characters for username
+                options.User.AllowedUserNameCharacters = configuration["IdentityAllowdUserNameCharacters"];
 
-                services.Replace(userValidatorServiceDescriptor);
+                //Set unique rule for emails
+                options.User.RequireUniqueEmail = true;
+            })
+            .AddRoles<CustomIdentityRole>()
+            .AddRoleValidator<RoleValidator<CustomIdentityRole>>()
+            .AddUserConfirmation<DefaultUserConfirmation<CustomIdentityUser>>()
+            .AddSignInManager<SignInManager<CustomIdentityUser>>()
+            .AddRoleManager<RoleManager<CustomIdentityRole>>()
+            // Added custom error describer for change errors language
+            .AddErrorDescriber<LocalizedIdentityErrorDescriber>()
+            .AddEntityFrameworkStores<RestAPIDbContext>()
+            .AddDefaultTokenProviders();
+        }
 
-                services.AddIdentityCore<CustomIdentityUser>(options =>
-                {
-                    //Configure allowed characters for username
-                    options.User.AllowedUserNameCharacters = configuration["IdentityAllowdUserNameCharacters"];
-
-                    //Set unique rule for emails
-                    options.User.RequireUniqueEmail = true;
-                })
-                .AddRoles<CustomIdentityRole>()
-                .AddRoleValidator<RoleValidator<CustomIdentityRole>>()
-                .AddUserConfirmation<DefaultUserConfirmation<CustomIdentityUser>>()
-                .AddSignInManager<SignInManager<CustomIdentityUser>>()
-                .AddRoleManager<RoleManager<CustomIdentityRole>>()
-                // Added custom error describer for change errors language
-                .AddErrorDescriber<LocalizedIdentityErrorDescriber>()
-                .AddEntityFrameworkStores<RestAPIDbContext>()
-                .AddDefaultTokenProviders();
-            }
-
-            public static void ConfigureApiVersion(this IServiceCollection services)
+        public static void ConfigureApiVersion(this IServiceCollection services)
             {
                 services.AddApiVersioning(o =>
                 {

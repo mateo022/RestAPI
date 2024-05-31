@@ -111,8 +111,8 @@ namespace RestAPIBackendWebService.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "c03df4df-b14d-4187-93cd-e10fc1e4a13c",
-                            RoleId = "513f280e-3277-4099-8baf-1462b451a5ea"
+                            UserId = "b79eac0d-16aa-4929-b0b5-771e2cce307f",
+                            RoleId = "391ff13a-fb36-4b30-badc-ee37ea23c4ff"
                         });
                 });
 
@@ -164,13 +164,13 @@ namespace RestAPIBackendWebService.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "513f280e-3277-4099-8baf-1462b451a5ea",
+                            Id = "391ff13a-fb36-4b30-badc-ee37ea23c4ff",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "fc31964e-f0c9-4bd5-8ace-8e90bcd26358",
+                            Id = "46b58d00-e53e-463f-85e1-dd222ef0281e",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -249,19 +249,19 @@ namespace RestAPIBackendWebService.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c03df4df-b14d-4187-93cd-e10fc1e4a13c",
+                            Id = "b79eac0d-16aa-4929-b0b5-771e2cce307f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5b763bf1-dfe7-4fe5-ab57-5bb020ac5c7b",
+                            ConcurrencyStamp = "9620be89-f88c-44f2-9916-5246b25fe30e",
                             Email = "mateoceballos022@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MATEOCEBALLOS022@GMAIL.COM",
                             NormalizedUserName = "MATEO CEBALLOS",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFmc7IdquxULlYapS6flK2nIw2lToNu9JY4ERakd+MV1gGwoQkZR5/9R5bR/BU6kSw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH+zTm0MC4aLtRFcoXucb6LKWCVudxWrojj2NQRH/DM4O+tKPextXjLX6PvgPPmA4Q==",
                             PhoneNumber = "3147894195",
                             PhoneNumberConfirmed = false,
                             PhoneNumberIndicator = "57",
-                            SecurityStamp = "21552336-19d0-4bfa-bca1-c7617e5208da",
+                            SecurityStamp = "afc54432-ed11-4067-a36c-926f27fa4ead",
                             TwoFactorCode = "2210",
                             TwoFactorEnabled = false,
                             TwoFactorExpireDate = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
